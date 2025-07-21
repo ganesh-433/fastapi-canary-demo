@@ -1,12 +1,13 @@
+# manifests/service.yaml
 apiVersion: v1
 kind: Service
 metadata:
-  name: fastapi-canary-demo-service
+  name: fastapi-canary-demo-service # Name of your service
 spec:
-  type: LoadBalancer
   selector:
-    app: fastapi-canary-demo
+    app: fastapi-canary-demo # Selects pods with this label (stable and canary)
   ports:
     - protocol: TCP
       port: 80
       targetPort: 80
+  type: LoadBalancer # Use LoadBalancer for external access, or ClusterIP for internal

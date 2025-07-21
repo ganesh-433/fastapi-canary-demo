@@ -7,7 +7,7 @@ spec:
   selector:
     matchLabels:
       app: fastapi-canary-demo # This MUST NOT CHANGE for this Deployment
-  replicas: 3 # Desired number of stable replicas
+  replicas: 4 # Desired number of stable replicas
   template:
     metadata:
       labels:

@@ -4,5 +4,5 @@ app = FastAPI()
 
 @app.get("/")
 async def read_root():
-    return {"message": "🚀 Hello, this is Version 2 - Canary Deployment"}
+    return {"message": "🚀 Hello, this is Version Two - Canary Deployment"}
  

@@ -1,19 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: fastapi-backend
+  name: fastapi-canary-demo
+  labels:
+    app: fastapi-canary-demo
 spec:
   replicas: 4
   selector:
     matchLabels:
-      app: fastapi-backend
+      app: fastapi-canary-demo
   template:
     metadata:
       labels:
-        app: fastapi-backend
+        app: fastapi-canary-demo
     spec:
       containers:
-      - name: fastapi-backend
+      - name: fastapi-container
         image: ganesh243/fastapi-canary-demo:latest
         ports:
-        - containerPort: 8000
+        - containerPort: 80

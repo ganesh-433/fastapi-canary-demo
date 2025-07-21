@@ -1,21 +1,21 @@
+# manifests/deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: fastapi-canary-demo
-  labels:
-    app: fastapi-canary-demo
+  name: fastapi-canary-demo # Name of your application deployment
 spec:
-  replicas: 4
   selector:
     matchLabels:
-      app: fastapi-canary-demo
+      app: fastapi-canary-demo # This MUST NOT CHANGE for this Deployment
+  replicas: 3 # Desired number of stable replicas
   template:
     metadata:
       labels:
-        app: fastapi-canary-demo
+        app: fastapi-canary-demo # Matches the selector
+        harness.io/track: stable # Label for stable pods, managed by Harness
     spec:
       containers:
       - name: fastapi-container
-        image: ganesh243/fastapi-canary-demo:latest
+        image: ganesh243/fastapi-canary-demo:latest # Placeholder - Harness will inject the image
         ports:
         - containerPort: 80
